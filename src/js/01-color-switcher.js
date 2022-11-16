@@ -11,7 +11,7 @@ startBtnEl.addEventListener('click', throttle(startChangeColor, 1000));
 stopBtnEl.addEventListener('click', stopChangeColor);
 
 function startChangeColor() {
-    tId = setInterval(changeBackgroundColor, 100);
+    tId = setInterval(changeBackgroundColor, 1000);
     startBtnEl.setAttribute('disabled', 'disabled');
     stopBtnEl.removeAttribute('disabled');
 }
