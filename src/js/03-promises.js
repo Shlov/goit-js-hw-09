@@ -1,3 +1,16 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+Notify.init({
+  cssAnimationDuration: 600,
+  timeout: 6000,
+  success: {
+    background: '#328dc6',
+  },
+  failure: {
+    background: '#f56d32',
+  },
+});
+
 const inputEl = document.querySelector('.form');
 
 inputEl.addEventListener('submit', startCreatePromise);
@@ -12,11 +25,13 @@ function startCreatePromise(event) {
 }
 
 function onS({position, delay}) {
-  console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
 }
 
 function onE({position, delay}) {
-  console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+  // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+  Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 }
 
 function createPromise(position, delay) {

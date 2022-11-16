@@ -1,4 +1,5 @@
 import flatpickr from "flatpickr";
+import { Report } from 'notiflix/build/notiflix-report-aio';
 // import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/themes/dark.css";
 
@@ -22,7 +23,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0].getTime() <= Date.now()) {
-      alert('Please choose a date in the future');
+      // alert('Please choose a date in the future');
+      Report.failure(
+        'Timer fail',
+        'Please choose a date in the future',
+        'Okay',
+        );
       return
     }
     startBtnEl.removeAttribute('disabled');
