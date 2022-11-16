@@ -24,7 +24,7 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0].getTime() <= Date.now()) {
       // alert('Please choose a date in the future');
-      Report.failure(
+      Report.warning(
         'Timer fail',
         'Please choose a date in the future',
         'Okay',
